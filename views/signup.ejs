@@ -1,0 +1,28 @@
+<%- include('header') %>
+
+  <div class="ui grid">
+    <div class="four wide column"></div>
+    <div class="eight wide column">
+      <form class="ui form segment" method="post">
+        <div class="field required">
+          <label>Email</label>
+          <input placeholder="Email" type="text" name="email">
+        </div>
+        <div class="field required">
+          <label>Full name</label>
+          <input placeholder="Full name" type="text" name="fullName">
+        </div>
+        <div class="field required">
+          <label>User name</label>
+          <input placeholder="User name" type="text" name="name">
+        </div>
+        <div class="field required">
+          <label>Password</label>
+          <input placeholder="password" type="password" name="password">
+        </div>
+        <input type="submit" class="ui button fluid" value="注册">
+      </form>
+    </div>
+  </div>
+
+  <%- include('footer') %>

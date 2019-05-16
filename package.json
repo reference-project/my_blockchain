@@ -1,0 +1,43 @@
+{
+  "name": "blockchain_cryptocoin",
+  "version": "1.0.0",
+  "description": "blockchain demo of cryptocurrency to realize trusted service on web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongoose",
+    "blockchain",
+    "crypto_currency"
+  ],
+  "author": "zyy",
+  "license": "ISC",
+  "dependencies": {
+    "config-lite": "2.1.0",
+    "connect-flash": "0.1.1",
+    "connect-mongo": "2.0.1",
+    "ejs": "2.5.7",
+    "eslint": "^5.1.0",
+    "express": "4.16.2",
+    "express-session": "1.15.6",
+    "mongoose": "^4.13.14",
+    "passport": "~0.4.0",
+    "passport-local": "~1.0.0",
+    "sha1": "1.1.1",
+    "view-helpers": "~0.1.5"
+  },
+  "devDependencies": {
+    "async": "^2.6.2",
+    "eslint-config-standard": "11.0.0-beta.0",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-node": "5.2.1",
+    "eslint-plugin-promise": "3.6.0",
+    "eslint-plugin-standard": "3.0.1",
+    "istanbul": "0.4.5",
+    "mocha": "4.1.0",
+    "supertest": "3.0.0"
+  }
+}

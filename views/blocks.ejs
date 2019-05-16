@@ -1,0 +1,7 @@
+<%- include('header') %>
+
+<h5>区块链展示</h5>
+<% blocks.forEach(function (block) { %>
+  <%- include('components/block-content', { block: block }) %>
+<% }) %>
+<%- include('footer') %>

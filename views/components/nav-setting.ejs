@@ -1,0 +1,21 @@
+<div class="nav-setting">
+  <div class="ui buttons">
+    <div class="ui floating dropdown button">
+      <i class="icon bars"></i>
+      <div class="menu">
+          <% if (user) { %>
+            <!-- <a class="item" href="/posts?author=<%= user._id %>">用户同步区块链页面</a> -->
+            <a class="item" href="/blocks">区块链展示</a>
+            <div class="divider"></div>
+            <a class="item" href="/posts/create">访问节点</a>
+            <a class="item" href="/signout">交易</a>
+          <% } else { %>
+            <a class="item" href="/signin">用户（节点）登录</a>
+            <a class="item" href="/signup">注册新账户（地址）</a>
+          <% } %>
+          <a class="item" href="/blocks">区块链展示</a>
+          <a class="item" href="/signup">peers节点展示</a>
+      </div>
+    </div>
+  </div>
+</div>
