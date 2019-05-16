@@ -3,7 +3,7 @@ const router = express.Router()
 const default_config = require('../config/default')
 const PeerModel = require('../models/peers')
 
-// 允许跨域访问
+// 允许跨域访问（允许任何客户端调用：设置了跨域请求，Access-Control-Allow-Origin设置为*，所以任何IP和端口的节点都可以访问和被访问。）
 router.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
