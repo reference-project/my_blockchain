@@ -1,4 +1,5 @@
 const Block = require('../lib/mongo').Block
+// const async = require('async')
 
 var genesisBlock = {
   height: 0,
@@ -14,11 +15,12 @@ function initializeChain() {
   return _genesisBlock.save()
 }
 
-/* var isEmpty = Block.findOne(function (err, doc) {
-  if (!doc)
-    return true
-  else return false
-}) */
+
+/*  var isEmpty = async.series([ Block.findOne(function (err, doc) {
+    if (!doc)
+      return true
+    else return false
+  })],function(err, values) */
 
 
 /* function isEmpty(cb) {
