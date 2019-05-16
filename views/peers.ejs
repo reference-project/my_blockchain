@@ -1,0 +1,7 @@
+<%- include('header') %>
+
+<h5>已连入网络节点列表展示</h5>
+<% peers.forEach(function (peer) { %>
+  <%- include('components/peer-content', { peer: peer }) %>
+<% }) %>
+<%- include('footer') %>

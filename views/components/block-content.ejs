@@ -1,11 +1,11 @@
 <div class="block-content">
     <div class="eight wide column">
       <div class="ui segment">
-        <h3><a href="/blocks/<%= block.hash %>">区块高度：<%= block.height %></a></h3>
+        <h3><a href="/blocks/<%- block.hash %>">区块高度：<%- block.height %></a></h3>
         <pre>区块哈希值：<%- block.hash %></pre>
         <pre>上一个区块哈希值：<%- block.previousHash %></pre>
         <pre>交易内容：<%- block.data %></pre>
-        <span class="tag">时间戳：<%= block.timestamp %></span>
+        <span class="tag">时间戳：<%- block.timestamp %></span>
       </div>
     </div>
   </div>

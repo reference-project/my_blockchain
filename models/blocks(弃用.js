@@ -26,8 +26,8 @@ function encryptHash_withBlock(block) {
 
 blockSchema.methods = {
   createNextBlock(data) {
-    var previousBlock = getLatestBlock()
-    var block = {
+    let previousBlock = getLatestBlock()
+    let block = {
       height: previousBlock.height + 1,
       timestamp: new Date().getTime() / 1000,
       data: data

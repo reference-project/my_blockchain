@@ -1,15 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const Block = require('../models/block1')
-const BlockModel = require('../models/block1').Block
+const BlockModel = require('../models/block1')
+const Blocks = require('../models/block1').Block
 
 // GET /blocks 展示区块链目前状况
 router.get('/', function (req, res, next) {
-  BlockModel.findOne()
+  Blocks.findOne()
     // 如果为空，bool为true
     .then(function (doc) {
       if (!doc) {
-        Block.initializeChain()
+        BlockModel.initializeChain()
           .then(function (genesisBlock) {
             if (!genesisBlock) {
               req.flash('error', 'U区块链为空，添加创世区块失败')
@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
           }).catch(next)
         // 如果为false，即区块链非空
       } else {
-        Block.getAllBlocks()
+        BlockModel.getAll()
           .then(function (blocks) {
             // console.log('blocks:' + blocks)
             res.render('blocks', {
@@ -65,7 +65,7 @@ router.get('/', function (req, res, next) {
 // 获取单个区块页面
 router.get('/:blockHash', function (req, res) {
   const blockHash = req.params.blockHash
-  Block.getBlockByHash(blockHash, function (err, block) {
+  BlockModel.getByHash(blockHash, function (err, block) {
     if (err) {
       req.flash('err', err)
     } else {

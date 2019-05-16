@@ -1,7 +1,7 @@
 const Block = require('../lib/mongo').Block
 // const async = require('async')
 
-var genesisBlock = {
+const genesisBlock = {
   height: 0,
   hash: '816534932c2b7154836da6afc367695e6337db8a921823784c14378abed4f7d7',
   previousHash: 'none',
@@ -10,7 +10,7 @@ var genesisBlock = {
 }
 
 function initializeChain() {
-  var _genesisBlock = new Block(genesisBlock)
+  let _genesisBlock = new Block(genesisBlock)
   // console.info('info' + _genesisBlock)
   return _genesisBlock.save()
 }
@@ -32,12 +32,12 @@ function initializeChain() {
   })
 } */
 
-function getAllBlocks() {
+function getAll() {
   return Block.find()
 }
 
 // 使用回调函数传递结果
-function getBlockByHash(hash, cb) {
+function getByHash(hash, cb) {
   Block.findOne({ 'hash': hash }, function (err, block) {
     if (err) return cb(err)
     else return cb(null, block)
@@ -59,14 +59,14 @@ function encryptHash_withBlock(block) {
 }
 
 function createNextBlock(latestBlock, currentData) {
-  var previousBlock = latestBlock
-  var block = {
+  let previousBlock = latestBlock
+  let block = {
     height: previousBlock.height + 1,
     timestamp: new Date().getTime() / 1000,
     data: currentData
   }
   block.hash = encryptHash_withBlock(block)
-  var _block = new Block(block)
+  let _block = new Block(block)
   return _block.save()
 }
 
@@ -74,12 +74,12 @@ function createNextBlock(latestBlock, currentData) {
 module.exports = {
   Block: Block,
   // isEmpty: isEmpty,
-  getAllBlocks: getAllBlocks,
+  getAll: getAll,
   // 若区块链为空，建立创世区块
   initializeChain: initializeChain,
   // 建立新区块
   createNextBlock: createNextBlock,
-  getBlockByHash: getBlockByHash
+  getByHash: getByHash
   /* ,
   updateBlockChain: function updateBlockChain(newChain){
   } */

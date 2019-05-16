@@ -3,7 +3,7 @@ module.exports = function (app) {
     res.redirect('/blocks')
   })
   app.use('/blocks', require('./blocks'))
-  // app.use('/api/peers', require('./peers'))
+  app.use('/peers', require('./peers'))
   app.use('/signup', require('./signup'))
   app.use('/signin', require('./signin'))
 
