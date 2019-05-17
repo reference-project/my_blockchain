@@ -4,16 +4,20 @@ const Peer = require('../lib/mongo').Peer
 const initialized_peers = require('../config/default').peers.list
 
 // 使用Promise.all可以将多个Promise实例包装成一个新的Promise实例
-function initializePeers() {
+function initializePeers(cb) {
   return Promise.all(initialized_peers.map(function (peer) {
     return Peer.findOne(peer)
       .then(function (res) {
         if (!res) {
+          console.log('xx:')
           let _peer = new Peer(peer)
           return _peer.save()
         }
       })
-  }))
+  })).then(function (values) {
+    if (values)
+      return cb(null, values)
+  })
 }
 
 function getAll() {
