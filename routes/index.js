@@ -4,8 +4,9 @@ module.exports = function (app) {
   })
   app.use('/blocks', require('./blocks'))
   app.use('/peers', require('./peers'))
-  app.use('/signup', require('./signup'))
-  app.use('/signin', require('./signin'))
+  // app.use('/signup', require('./signup'))
+  app.use('/addPeer', require('./addPeer'))
+  // app.use('/signin', require('./signin'))
 
   // 404 page
   app.use(function (req, res) {

@@ -28,6 +28,7 @@ function getByAddr(addr) {
 }
 
 module.exports = {
+  Peer: Peer,
   initializePeers: initializePeers,
   getAll: getAll,
   getByAddr: getByAddr

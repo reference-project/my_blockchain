@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const BlockModel = require('../models/block1')
-const Blocks = require('../models/block1').Block
+const BlockModel = require('../models/block')
+const Blocks = require('../models/block').Block
 
 // GET /blocks 展示区块链目前状况
 router.get('/', function (req, res, next) {

@@ -1,0 +1,28 @@
+<%- include('header') %>
+
+<div class="ui grid">
+  <div class="four wide column"></div>
+  <div class="eight wide column">
+    <form class="ui form segment" method="post">
+      <div class="field required">
+        <label>ip</label>
+        <input placeholder="ip" type="text" name="ip">
+      </div>
+      <div class="field required">
+        <label>port</label>
+        <input placeholder="port" type="text" name="port">
+      </div>
+      <!-- <div class="field required">
+        <label>account</label>
+        <input placeholder="account" type="text" name="account">
+      </div> -->
+      <!-- <div class="field required">
+        <label>Password</label>
+        <input placeholder="password" type="password" name="password">
+      </div> -->
+      <input type="submit" class="ui button fluid" value="添加节点">
+    </form>
+  </div>
+</div>
+
+<%- include('footer') %>
