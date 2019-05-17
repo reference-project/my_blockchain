@@ -9,14 +9,27 @@ module.exports = {
   peers: {
     list: [{
       addr: {
-        ip: '1.2.3.4',
+        ip: '127.0.0.1',
         port: '70001'
       },
       state: 2
     },{
       addr: {
         ip: '2.1.2.3',
-        port: '7002',
+        port: '3333'
+      },
+      state: 2
+    },
+    {
+      addr: {
+        ip: '127.0.0.1',
+        port: '3001'
+      },
+      state: 2
+    },{
+      addr: {
+        ip: '127.0.0.1',
+        port: '3000',
       },
       state: 2
     }],

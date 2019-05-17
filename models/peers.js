@@ -9,7 +9,6 @@ function initializePeers(cb) {
     return Peer.findOne(peer)
       .then(function (res) {
         if (!res) {
-          console.log('xx:')
           let _peer = new Peer(peer)
           return _peer.save()
         }
