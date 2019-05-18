@@ -12,24 +12,18 @@ router.get('/', function (req, res) {
 router.post('/', function (req, res) {
   const ip = req.body.ip
   const port = req.body.port
-  // const account = req.body.account
-  // let password = req.body.password
 
   console.log(req.body)
 
   // 校验参数
   try {
-    if (!(ip.length >= 1 && ip.length <= 20)) {
+    if (!(ip.length >= 1 && ip.length <= 16)) {
       throw new Error('ip输入格式不合法')
     }
-    if (!(port.length >= 1 && port.length <= 6)) {
-      throw new Error('端口请限制在 1-6 个字符')
+    if (!(port.length >= 1 && port.length <= 5)) {
+      throw new Error('端口请限制在 1-5 个字符')
     }
-    /* if (password.length < 6) {
-      throw new Error('密码至少 6 个字符')
-    } */
   } catch (e) {
-    // 注册失败，异步删除上传的头像
     req.flash('error', e.message)
     return res.redirect('/addPeer')
   }
@@ -41,8 +35,6 @@ router.post('/', function (req, res) {
       port: port
     },
     state: 2
-    /* username: username,
-    email: email */
   }
   // 节点信息写入数据库
   const _peer = new Peer(peer)
@@ -56,7 +48,7 @@ router.post('/', function (req, res) {
     req.session.peer = peer
     // 写入 flash
     req.flash('success', '网络节点添加成功')
-    // 跳转到首页
+    // 跳转到区块链展示页面
     res.redirect('/blocks')
   } catch (err) {
     req.flash('error', err.message)

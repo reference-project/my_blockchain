@@ -68,6 +68,7 @@ router.get('/:blockHash', function (req, res) {
   BlockModel.getByHash(blockHash, function (err, block) {
     if (err) {
       req.flash('err', err)
+      req.redirect('/blocks')
     } else {
       res.render('block', {
         block: block

@@ -4,6 +4,7 @@ module.exports = function (app) {
   })
   app.use('/blocks', require('./blocks'))
   app.use('/peers', require('./peers'))
+  app.use('/api', require('./api'))
   // app.use('/signup', require('./signup'))
   app.use('/addPeer', require('./addPeer'))
   // app.use('/signin', require('./signin'))
