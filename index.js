@@ -11,7 +11,6 @@ const routes = require('./routes')
 const express = require('express')
 const helpers = require('view-helpers')
 const bodyParser = require('body-parser')
-const passport = require('passport')
 const app = express()
 
 app.set('views', path.join(__dirname, 'views'))
@@ -25,7 +24,7 @@ app.use(session({
   // 通过设置 secret 来计算 hash 值并放在 cookie 中，使产生的 signedCookie 防篡改
   secret: config_lite.session.secret,
   // 强制更新 session
-  resave: true,
+  resave: false,
   // 设置为 false，强制创建一个 session，即使用户未登录
   saveUninitialized: false,
   cookie: {
@@ -39,9 +38,6 @@ app.use(session({
   })
 }))
 
-app.use(passport.initialize())
-app.use(passport.session())
-
 app.use(flash())
 
 app.use(bodyParser.json())
@@ -54,19 +50,19 @@ app.locals.blockchain = {
   description: pkg.description
 }
 
-app.use(function (req, res, next) {
-  res.locals.user = req.session.user
+/* app.use(function (req, res, next) {
+  // res.locals.user = req.session.user
   res.locals.success = req.flash('success').toString()
   res.locals.error = req.flash('error').toString()
   next()
-})
+}) */
 
 routes(app)
 
 app.use(function (err, req, res) {
   console.error(err)
   req.flash('error', err.message)
-  res.redirect('/blocks')
+  return res.redirect('/blocks')
 })
 
 // Mongoose做异步操作时，为了向后兼容，Mongoose 4 默认使用mpromise作为返回值。

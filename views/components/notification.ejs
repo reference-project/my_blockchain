@@ -2,15 +2,15 @@
   <div class="four wide column"></div>
   <div class="eight wide column">
 
-  <% if (success) { %>
+  <% if (success && success.length) { %>
     <div class="ui success message">
       <p><%= success %></p>
     </div>
   <% } %>
 
-  <% if (error.length) { %>
+  <% if (errors && errors.length) { %>
     <div class="ui error message">
-      <p><%= error %></p>
+      <p><%= errors %></p>
     </div>
   <% } %>
 

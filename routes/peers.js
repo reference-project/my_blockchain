@@ -89,7 +89,7 @@ router.get('/', function (req, res) {
     // res.render('peers')
 
   }, function (err) {
-    req.flash('err', err)
+    req.flash('error', err)
     res.redirect('/peers')
   })
 })
@@ -113,7 +113,7 @@ router.get('/:peerAddr', function (req, res) {
       })
     })
   } catch (err) {
-    req.flash('err', err)
+    req.flash('error', err)
     res.redirect('/peers')
   }
 })

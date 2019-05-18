@@ -2,6 +2,18 @@
 
 <h5>区块链展示</h5>
 <% blocks.forEach(function (block) { %>
-  <%- include('components/block-content', { block: block }) %>
+<%- include('components/block-content', { block: block }) %>
 <% }) %>
+<div class="six wide column">
+  <form class="ui form segment" method="post">
+    <input type="submit" class="ui button fluid" value="添加区块">
+  </form>
+</div>
+<div class="six wide column">
+  <form class="ui form segment" method="post">
+    <input type="hidden" name="verification" value="yes">
+    <input type="submit" class="ui button fluid" value="检验本地区块链">
+  </form>
+</div>
+
 <%- include('footer') %>
